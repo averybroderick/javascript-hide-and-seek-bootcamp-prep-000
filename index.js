@@ -7,7 +7,24 @@ function nestedTarget() {
 }
 
 function deepestChild() {
+  let current = document.querySelector('#grand-node');
+  let next = [];
 
+  while (current) {
+    if(!current.children) {
+      return current;
+    }
+
+    if(current.children) {
+      for (let i = 0; i < current.children.length; i++) {
+        next.push(current.children[i]);
+      }
+    }
+
+    current = next.shift();
+  }
+
+  return null;
 }
 
 function increaseRankBy(n) {
