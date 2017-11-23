@@ -7,15 +7,18 @@ function nestedTarget() {
 }
 
 function deepestChild() {
+  debugger;
   let current = document.querySelector('#grand-node');
   let next = [];
 
   while (current) {
-    if(!current.children) {
+    console.log(current.children)
+    console.log(current.childElementCount)
+    if(current.childElementCount === 0) {
       return current;
     }
 
-    if(current.children) {
+    if(current.childElementCount > 0) {
       for (let i = 0; i < current.children.length; i++) {
         next.push(current.children[i]);
       }
